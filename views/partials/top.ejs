@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/images/favicon.ico" />
+  <link rel="shortcut icon" href="/images/favicon-32x32.png" type="image/png" />
+  <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="/css/app.css" type="text/css" />
+  <style>
+    .bg-primary {
+      background-color: #263238 !important;
+    }
+    .text-primary {
+      color: #263238 !important;
+    } 
+    body {
+      padding-top: 62.3px;
+    }
+    a.card {
+      text-decoration: none;
+    }
+  </style>
+  <title><%= appname %></title>
+</head>
+<body>
+  <nav class="navbar fixed-top navbar-expand-sm bg-primary text-white py-0 d-flex align-items-center justify-content-between">
+    <div class="d-flex align-items-center py-2">
+      <% /* %>
+        <img class="logo mr-3" src="/images/logo.png" alt="logo">
+      <% */ %>
+      <h2 class="mr-2">
+        <i class="mr-2 fa fa-snowflake-o" aria-hidden="true"></i>
+      </h2>
+      <h3 class="font-weight-normal app-title"><%= appname %>
+      </h3>
+    </div>
+
+    <div class="sidenav-toggle">
+      <button class="btn btn-dark text-light sidenav-toggle-button"><span class="navbar-toggler-icon"><i class="mr-2 fa fa-list" aria-hidden="true"></i></span></button>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="row">
+      <aside class="p-0 col-lg-2 sidenav bg-primary text-white">
+      <% /* %>
+        <div class="d-flex align-items-center my-2 mb-4 p-2 pb-3 border-bottom">
+          <div class="ml-2">
+            <span class="font-weight-light">Welcome, </span><br>
+            <p class="title mb-0 pb-0"><%= user.username  %></p>
+          </div>
+        </div>
+      <% */ %>
+        <ul class="list-group py-2 px-2">
+          <a href="/" class="list-group-item mb-2 bg-light text-dark">
+            <i class="mr-2 fa fa-dashboard" aria-hidden="true"></i> 
+            <span>Dashboard</span>
+          </a>
+          <a href="/vaccines" class="list-group-item mb-2 bg-light text-dark">
+            <i class="mr-2 fa fa-medkit" aria-hidden="true"></i> <span>Vaccines</span>
+          </a>
+          <a href="/vaccine-reports" class="list-group-item mb-2 bg-light text-dark">
+            <i class="mr-2 fa fa-sticky-note" aria-hidden="true"></i> <span>V. Reports</span>
+          </a>
+          <a href="/vaccine-centers" class="list-group-item mb-2 bg-light text-dark">
+            <i class="mr-2 fa fa-hospital-o" aria-hidden="true"></i> <span>V. Centers</span>
+          </a>
+          
+          <a href="/vaccine-inventory-items" class="list-group-item mb-2 bg-light text-dark">
+            <i class="mr-2 fa fa-snowflake-o" aria-hidden="true"></i> <span>V. Inventory</span>
+          </a>
+          
+          <a href="/patients" class="list-group-item mb-2 bg-light text-dark">
+            <i class="mr-2 fa fa-user-plus" aria-hidden="true"></i> <span>Patients</span>
+          </a>
+          <a href="/users" class="list-group-item mb-2 bg-light text-dark">
+            <i class="mr-2 fa fa-user" aria-hidden="true"></i> <span>Users</span>
+          </a>
+          <a href="/logout" class="list-group-item mb-2 bg-light text-dark">
+            <i class="mr-2 fa fa-sign-out" aria-hidden="true"></i> <span>Logout</span>
+          </a>
+        </ul>
+      </aside>
+
+      <main class="col-lg-10">

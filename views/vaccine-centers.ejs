@@ -1,0 +1,111 @@
+<%- include ('partials/top') %>
+  <div class="row space">
+    <div class="col-12">
+      <div class="d-flex justify-content-between align-items-center border-bottom pb-2">
+        <h3 class="title">Vaccination Centers</h3>
+        <div>
+          <a href="/vaccine-centers/new" class="btn btn-primary">Add Vaccination Center</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="w-100 d-flex justify-content-between align-items-center border-bottom mb-2">
+        <form method="GET" action="/vaccine-centers" class="form-inline ">
+          <label>Show <input required type="number" class="form-control form-control-sm font-weight-bold text-right mx-2" name="limit" value='<%= limit_size %>' style="width: 62px;"> Entries
+          </label>
+        </form>
+        <form id="search-form" method="GET" action="/vaccine-centers?limit=<%= limit_size %>" class="form-inline">
+          <div class="form-group mb-4">
+            <input type="text" name="search" id="search-box" class="form-control form-control-sm" placeholder="Search by name...">
+            <button type="submit" class="btn btn-sm btn-primary">Search</button>
+          </div>
+        </form>
+      </div>
+      <h4 class="font-weight-light text-center text-white bg-primary p-2 m-0 table-top">List of Vaccination Centers</h4>
+      <table class="table table-striped">
+        <thead class="font-weight-bold">
+          <tr>
+            <td>#</td>
+            <td>Name</td>
+            <td>State</td>
+            <td>Town</td>
+            <td>Address</td>
+            <td>Actions</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% vaccination_centers.forEach((m) => { %>
+            <tr>
+              <td><%= m.serial_number %></td>
+              <td><%= m.name %></td>
+              <td><%= m.state %></td>
+              <td><%= m.city %></td>
+              <td><%= m.address %></td>
+              <td>
+                <a href='<%= "/vaccine-centers/remove/" + m._id %>' class="btn btn-sm btn-danger"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+              </td>
+            </tr>
+          <% }) %>          
+        </tbody>
+      </table>
+      <div class="d-flex justify-content-between align-items-center border-top pt-2 mt-2">
+        <div class="">
+          <p>Showing <%= (offset + 1) %> to <%= ( (offset + limit_size > totalDocuments) ? totalDocuments : offset + limit_size )  %> of <%= totalDocuments %> entries</p>
+        </div>
+        <div>
+          <ul class="pagination">
+            <li class='page-item <%= (currentPage == 1) ? "disabled" : "" %>'>
+              <a href='/vaccine-centers?page=1&limit=<%= limit_size %>' class="page-link font-weight-bold">&lt;&lt;</a>
+            </li>
+            <li class='page-item <%= (currentPage == 1) ? "disabled" : "" %>'>
+              <a href='/vaccine-centers?page=<%= (currentPage == 1) ? 1 : (currentPage - 1) %>&limit=<%= limit_size %>' class="page-link"><small>prev</small></a>
+            </li>
+
+            <% if (currentPage > 0) { %>
+              <% for(let p = currentPage - 2, count = 0; p <= currentPage && count <= 1 ; p++, count++) { %>
+                <% if (count == 0 && p > 1) { %>
+                  <li class="page-item disabled">
+                    <a href='javascript:void()' class='page-link'>...</a>
+                  </li>
+                <% } else if (p > 0) { %>
+                  <li class='page-item <%= (p == currentPage) ? "active" : "" %>'>
+                    <a href='/vaccine-centers?page=<%= p %>&limit=<%= limit_size %>' class='page-link'><%= p %></a>
+                  </li>
+                <% } %>
+              <% } %>
+            <% } %>
+            
+            <% if (currentPage <= totalNumberOfPages) { %>
+              <% for(let p = currentPage, count = 0; p <= totalNumberOfPages && count <= 2; p++, count++) { %>
+                <% if (count == 2 && p <= totalNumberOfPages ) { %>
+                  <li class="page-item disabled">
+                    <a href='javascript:void()' class='page-link'>...</a>
+                  </li>
+                <% } else { %>
+                  <li class='page-item <%= (p == currentPage) ? "active" : "" %>'>
+                    <a href='/vaccine-centers?page=<%= p %>&limit=<%= limit_size %>' class='page-link'><%= p %></a>
+                  </li>
+                <% } %>
+              <% } %>
+            <% } %>
+            <li class='page-item <%= (currentPage == totalNumberOfPages) ? "disabled" : "" %>'>
+              <a href='/vaccine-centers?page=<%= (currentPage == totalNumberOfPages ) ? totalNumberOfPages : (currentPage + 1) %>&limit=<%= limit_size %>' class="page-link"><small>next</small></a>
+            </li>
+            <li class='page-item <%= (currentPage == totalNumberOfPages) ? "disabled" : "" %>'>
+              <a href='/vaccine-centers?page=<%= totalNumberOfPages %>&limit=<%= limit_size %>' class="page-link font-weight-bold">&gt;&gt;</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+</div>
+
+</div>
+  
+
+<%- include ('partials/bottom') %>

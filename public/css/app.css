@@ -1,0 +1,143 @@
+body {
+  padding-top: 72px;
+  font-family: 'pt-sans', 'open-sans', 'lato', 'roboto', sans-serif;
+  background-color: #F5F5F5;
+}
+
+.no-border {
+  border: none;
+}
+
+#branding {
+  width: 72px;
+  height: 64px;
+  border-radius: 50%;
+  border: 4px dotted white;
+  font-family: cursive;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+thead td {
+  border-top: 0 !important;
+  border-bottom: 4px solid grey;
+}
+
+tbody.striped tr:nth-child(even) {
+  background-color: #2c2c2cb0;
+}
+
+.table-top {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.table-thumbnail {
+  width: 72px; 
+  height: 92px; 
+  border-radius: 12px;
+}
+
+.candidate-thumbnail {
+  width: 92px; 
+  height: 112px; 
+  border-radius: 12px;
+}
+
+.profile-photo {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+}
+
+.logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+}
+
+.login-page-design {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 350px;
+  width: 250px;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  z-index: 1;
+}
+
+.table .row:nth-child((odd)) {
+  background-color: #c1c1c1;
+}
+
+img {
+  width: 100%;
+}
+
+.space {
+  padding: 0.5em 0 2.5em 0;
+}
+
+.sidenav {
+  min-height: calc(100vh - 72px);
+}
+
+.sidenav-toggle {
+  display: none;
+}
+
+.sidenav .list-group-item {
+  cursor: pointer;
+}
+
+.user-img-circle-md {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.underline {
+  border-bottom: 2px solid #fff;
+}
+
+.table-stripped tbody tr:nth-of-type(odd) {
+  background-color:red !important;
+}
+
+.book-thumbnail {
+  width: 120px;
+  height: 180px;
+}
+
+.icon {
+  font-size: 65px;
+}
+
+.light-background {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.grid-item p {
+  margin-bottom: 0;
+}
+
+@media (max-width: 992px ) {
+  .sidenav-toggle {
+    display: block;
+  }
+  .sidenav {
+    margin-left: -100%;
+    position: absolute;
+    /* width: 50%; */
+    z-index: 100;
+    text-align: center;
+    transition: margin-left 0.4s;
+  }
+  .sidenav.open {
+    margin-left: 0%;
+  }
+}
